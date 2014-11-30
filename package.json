@@ -1,0 +1,25 @@
+{
+  "name": "erray",
+  "description": "Define an array of errors based on a specification.",
+  "author": {
+    "name": "Braydon Fuller",
+    "email": "courier@braydon.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/braydonf/erray.git"
+  },
+  "scripts": {
+    "dist": "sh scripts/make-dist.sh",
+    "test": "mocha test/*.js --reporter spec",
+    "postinstall": "sh scripts/make-dist.sh"
+  },
+  "main": "erray.js",
+  "version": "0.1.0",
+  "devDependencies": {
+    "uglify-js": "~2.4.14",
+    "browserify": "=6.1.0",
+    "chai": "=1.9.1",
+    "mocha": "~1.20.1"
+  }
+}
