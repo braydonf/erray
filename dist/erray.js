@@ -103,9 +103,30 @@ var Errors = function(array){
     }
     
     errors[name] = function(msg) {
-      Error.call(this);
+      var e = Error.call(this);
       if (Error.captureStackTrace) {
         Error.captureStackTrace(this, errors[name]);
+      } else {
+        if (e.stack){
+          this.stack = e.stack;
+          // mozilla polyfill: determine the error line number 
+          // via parsing the stack trace
+          if (typeof(e.stack) === 'string') {
+            var s = this.stack.split('\n');
+            if (s.length > 0){
+              // find the line number of the previous in the stack
+              var re = new RegExp('\@(.*)\:([0-9]+)\:([0-9])+$');
+              var m = s[1].match(re);
+              if (m) {
+                this.fileName = m[1];
+                this.lineNumber = m[2];
+                this.columnNumber = m[3];
+              }
+              // correct by removing first in the stack
+              this.stack = s.slice(1,s.length-1).join('\n');
+            }
+          }
+        }
       }
       if (typeof (message) === 'function') {
         this.message = message.apply(null, arguments);
