@@ -1,6 +1,6 @@
 # Erray
 
-Define an array of errors based on a specification.
+Define an array of errors in JavaScript based on a specification.
 
 ## Overview
 
@@ -8,6 +8,9 @@ Easily be able to detect types of error messages by defining an error specificat
 and then using `instanceof` and/or `code` to determine the type of error and handle 
 errors appropriately.
 
+## Known Issues
+
+Extending 'Error' is not trivial as `lineNumber`, `columnNumber` and `fileName` in addition to `stack` properties are vendor specific. For example within Mozilla Firefox, the `lineNumber` property will reference the incorrect line, and will point to a line inside of the class rather then where the error was thrown. Currently `lineNumber`, `columnNumber` and `fileName` are not accessible from Firefox. Please see [Error - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Example.3A_Custom_Error_Types) for more information.
 
 ## Handling an Error
 
@@ -51,7 +54,7 @@ var Erray = require('erray');
 
 ## Defining Errors 
 
-Errors are defined with a consise specification.
+Errors are defined with a concise specification.
 
 ```javascript
 

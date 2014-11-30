@@ -1,7 +1,7 @@
 {
   "name": "erray",
   "main": "dist/erray.min.js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/braydonf/erray",
   "authors": [
     "Braydon Fuller <courier@braydon.com>"
