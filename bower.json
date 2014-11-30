@@ -1,0 +1,21 @@
+{
+  "name": "erray",
+  "main": "dist/erray.min.js",
+  "version": "0.1.2",
+  "homepage": "https://github.com/braydonf/erray",
+  "authors": [
+    "Braydon Fuller <courier@braydon.com>"
+  ],
+  "description": "Define an array of errors based on a specification.",
+  "keywords": [
+    "errors"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
